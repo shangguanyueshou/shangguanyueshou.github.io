@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MySQL字符类型 | Dreamboy_上官</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MySQL字符类型： ——–        字符类型">
+<meta name="keywords" content="MySQL,字符类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL字符类型">
+<meta property="og:url" content="http://yoursite.com/2017/12/10/MySQL字符类型/index.html">
+<meta property="og:site_name" content="Dreamboy_上官">
+<meta property="og:description" content="MySQL字符类型： ——–        字符类型">
+<meta property="og:updated_time" content="2017-12-12T02:53:40.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL字符类型">
+<meta name="twitter:description" content="MySQL字符类型： ——–        字符类型">
+  
+    <link rel="alternative" href="/atom.xml" title="Dreamboy_上官" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">上官岳寿</a></h1>
+        </hgroup>
+
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://shangguanyueshou.github.io/">博客首页</a></li>
+                        
+                            <li><a href="https://shangguanyueshou.github.io/">作品展示</a></li>
+                        
+                            <li><a href="https://shangguanyueshou.github.io/">留言打卡</a></li>
+                        
+                            <li><a href="https://shangguanyueshou.github.io/">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=412417117@qq.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/shangguanyueshou" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="https://weibo.com/" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="http://www.google.com.hk/" title="google">google</a>
+                            
+                                <a class="fl QQ" target="_blank" href="https://user.qzone.qq.com/412417117/infocenter" title="QQ">QQ</a>
+                            
+                                <a class="fl twitter" target="_blank" href="https://twitter.com/" title="twitter">twitter</a>
+                            
+                                <a class="fl linkedin" target="_blank" href="https://www.linkedin.com/in/%E5%B2%B3%E5%AF%BF-%E4%B8%8A%E5%AE%98-9b16b6154/?trk=uno-choose-ge-no-intent&dl=no" title="linkedin">linkedin</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/11月26号/" style="font-size: 10px;">11月26号</a> <a href="/tags/2018-2-17/" style="font-size: 10px;">2018.2.17</a> <a href="/tags/MYSQL/" style="font-size: 20px;">MYSQL</a> <a href="/tags/MYSQL优化方法/" style="font-size: 10px;">MYSQL优化方法</a> <a href="/tags/MYSQL锁/" style="font-size: 10px;">MYSQL锁</a> <a href="/tags/MySQL/" style="font-size: 17.5px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/emmmmp/" style="font-size: 10px;">emmmmp</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/javaScript/" style="font-size: 15px;">javaScript</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/show/" style="font-size: 10px;">show</a> <a href="/tags/上官岳寿/" style="font-size: 10px;">上官岳寿</a> <a href="/tags/世界只因有你/" style="font-size: 10px;">世界只因有你</a> <a href="/tags/为什么没有单挑排位/" style="font-size: 10px;">为什么没有单挑排位</a> <a href="/tags/主从配置/" style="font-size: 10px;">主从配置</a> <a href="/tags/今天感冒了/" style="font-size: 10px;">今天感冒了</a> <a href="/tags/你在哪里/" style="font-size: 10px;">你在哪里</a> <a href="/tags/哎/" style="font-size: 10px;">哎</a> <a href="/tags/基本操作/" style="font-size: 10px;">基本操作</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/大宝剑/" style="font-size: 10px;">大宝剑</a> <a href="/tags/好好喝/" style="font-size: 10px;">好好喝</a> <a href="/tags/好好学习/" style="font-size: 10px;">好好学习</a> <a href="/tags/字符类型/" style="font-size: 10px;">字符类型</a> <a href="/tags/常用操作/" style="font-size: 10px;">常用操作</a> <a href="/tags/开心哦/" style="font-size: 10px;">开心哦</a> <a href="/tags/很喜欢的一句话/" style="font-size: 10px;">很喜欢的一句话</a> <a href="/tags/恢复数据/" style="font-size: 10px;">恢复数据</a> <a href="/tags/感冒了/" style="font-size: 10px;">感冒了</a> <a href="/tags/我应该怎么/" style="font-size: 10px;">我应该怎么</a> <a href="/tags/我老了/" style="font-size: 10px;">我老了</a> <a href="/tags/授权/" style="font-size: 10px;">授权</a> <a href="/tags/昨天的我失去了三个朋友/" style="font-size: 10px;">昨天的我失去了三个朋友</a> <a href="/tags/最简单/" style="font-size: 10px;">最简单</a> <a href="/tags/朋友/" style="font-size: 10px;">朋友</a> <a href="/tags/朱古力/" style="font-size: 10px;">朱古力</a> <a href="/tags/来说这个鸡巴游戏啊/" style="font-size: 10px;">来说这个鸡巴游戏啊</a> <a href="/tags/来陪我打王者农药/" style="font-size: 10px;">来陪我打王者农药</a> <a href="/tags/欢迎大家/" style="font-size: 10px;">欢迎大家</a> <a href="/tags/猎场/" style="font-size: 10px;">猎场</a> <a href="/tags/王者荣耀/" style="font-size: 10px;">王者荣耀</a> <a href="/tags/索引问题/" style="font-size: 12.5px;">索引问题</a> <a href="/tags/长大一岁/" style="font-size: 10px;">长大一岁</a> <a href="/tags/难受香菇/" style="font-size: 10px;">难受香菇</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://shanguanyueshou.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">上官岳寿</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">上官岳寿</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://shangguanyueshou.github.io/">博客首页</a></li>
+                
+                    <li><a href="https://shangguanyueshou.github.io/">作品展示</a></li>
+                
+                    <li><a href="https://shangguanyueshou.github.io/">留言打卡</a></li>
+                
+                    <li><a href="https://shangguanyueshou.github.io/">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=412417117@qq.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/shangguanyueshou" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="http://www.google.com.hk/" title="google">google</a>
+                    
+                        <a class="QQ" target="_blank" href="https://user.qzone.qq.com/412417117/infocenter" title="QQ">QQ</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/" title="twitter">twitter</a>
+                    
+                        <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/%E5%B2%B3%E5%AF%BF-%E4%B8%8A%E5%AE%98-9b16b6154/?trk=uno-choose-ge-no-intent&dl=no" title="linkedin">linkedin</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-MySQL字符类型" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/10/MySQL字符类型/" class="article-date">
+      <time datetime="2017-12-10T02:02:56.000Z" itemprop="datePublished">2017-12-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL字符类型
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/字符类型/">字符类型</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong> MySQL字符类型：</strong> <excerpt in="" index="" |="" 首页摘要=""><br>——–        字符类型<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<pre><code>1.整数类型
+========
+    整数类型    字节数   无符号范围                有符号的范围
+    tinyint     1        0~255                     -128~127
+    smalllint   2        0~65535                   -32768~32767
+    mediumint   3        0~16777215                -8388608~8388607
+    int         4        0~4294967295              -2147483648~2147483647
+    bigint      8        0~18446744073709551615    -9223372036854775808~9223372036854775808
+
+    mysql支持数据类型的后面指定该类型的显示宽度。其基本形式如下：
+    格式: 数据类型(显示宽度)
+
+    默认显示宽度：可以理解为，一个数据类型的默认显示宽度正好是能显示该数据类型的所有值的宽度。
+              长度
+    tinyint    4
+    smallint   6
+    mediumint  9
+    int        11  无符号则10
+    bigint     20
+
+    tinyint(1)
+
+    在整数类型使用时，可以搭配zerofill参数，zerofill参数表示数字不足的显示空间由0来填充。
+    注意：使用zerofill时，mysql会自动加上unsigned属性。那么，该整数类型只能表示无符号数，其显示宽度比默认显示宽度小1。
+
+    在设置了显示宽度时，如果插入的数据宽度大小设置的显示宽度时，数据依然可以插入，且能够显示。该设置的宽度失效。
+    注意：数据的宽度不能大于默认宽度。如果大于默认宽度，那该数据已经超过了该类型的最大值。因为最大值的宽度必须是小于等于默认宽度。如果一个值大于最大值，将不可能插入。
+    整数类型还有一个auto_increment属性。自增。
+
+2.浮点数和定点数
+==============
+    mysql中使用浮点数和定点数来表示小数。
+    浮点数：单精度浮点数(float)和双精度浮点数(double)。
+    定义数：decimal
+
+    浮点类型   字节数  负数的取值范围                                      非负数的取值范围
+    float      4       -3.402823466e+38~-1.175494351e-38                   0和-1.175494351e-38~3.402823466e+38
+    double     8       -1.79769313486223157e+308~-2.2250738585072014e-308  0和-2.2250738585072014e-308~1.79769313486223157e+308
+    decimal    m+2     同double                                            同double
+
+    定点数的存储空间是根据其精度来决定的。
+    mysql中可以指定浮点数的精度： 
+
+    格式: 数据类型(m,d)   decimal(10,2)
+
+    m-精度，是数据的总长度，小数点占一个位置
+    d-标度，小数点后的长度
+
+    如果插入的值的精度高于实际定义的精度，系统会自动进行四舍五入处理。float double不会报错，decimal会报一个警告
+    在存储小数时，建议使用decimal类型，定点数以字符串形式储存。因此，精度要比浮点数要高。而且，浮点数会出现误差，这是浮点数一直存在的缺陷。如果对数据的精度要求比较高，还是选择定点数(decimal)比较安全。
+    decimal(m,d) 常用于 money 类字段
+
+3.日期与时间类型
+==============
+    数据类型   字节数  取值范围                                 零值
+    year       1       1901~2155                                0000
+    date       4       1000-01-01~9999-12-31                    0000:00:00
+    time       3       -838:59:59~838:59:59                     00:00:00
+    datetime   8       1000-01-01 00:00:00~9999-12-31 23:59:59  0000-00-00 00:00:00
+    timestamp  4       19700101080001~20380119111417            00000000000000
+
+    year:
+    超出范围就会插入0000
+    使用2位字符串表示，&apos;00&apos;~&apos;69&apos;转换为2000~2069，&apos;70&apos;~&apos;99&apos;转换为1970~1999
+    使用2位数字表示，00~69转换为2000~2069，70~99转换为1970~1999。
+    注意两位的数字和两位的字符串是不一样的：0-0000 &apos;0&apos;&apos;00&apos;-2000
+
+    date:
+    4个字节来表示日期。以yyyy-mm-dd的形式来显示date类型的值。
+    1）&apos;yyyy-mm-dd&apos;或&apos;yyyymmdd&apos;格式的字符串表示。
+    2）mysql中还支持一些不严格的语法格式：&apos;yyyymmdd&apos; &apos;yyyy@mm@dd&apos; &apos;yyyy.mm.dd&apos;
+    3)&apos;yy-mm-dd&apos;或&apos;yymmdd&apos;格式的字符串表示。
+    4）yy取值同year类型中的两位字符串的表示一致。
+    5）yyyymmdd或yymmdd格式的数字表示。yy取值同上。
+    虽然mysql支持date类型的一些不严格的语法格式。但是，实际运用中，最好还是选择标准形式。日期中使用-做分隔符，时间用：做分隔符。如果有特殊需要也可以使用@、* 等特殊字符做分隔符。
+    使用current_date和now()转换为当前系统日期。
+
+4.字符串类型
+==========
+    字符串类型是mysql中用来存储字符串的数据类型。字符串类型包括char varchar blob text enum set。
+
+    char 和 varchar 类型
+    =================
+    字符串类型(m) m-该字符串的最大长度为m
+    char    定长字符类型 0~255
+    varchar 变长字符类型 5.0版本以前0~255 5.0版本以后0~65535
+
+    char(5)和varchar(5)的区别
+
+    插入值   char占用字节数  varchar占用字节数
+    &apos;&apos;       5               1
+    &apos;1&apos;      5               2
+    &apos;123&apos;    5               4
+    &apos;1234&apos;   5               5
+    &apos;12345&apos;  5               6
+
+    如果插入值的长度大于m，则插入失败。
+
+5.text类型
+========
+    类型       范围          占用空间
+    tinytext   0~255         长度+2个字节
+    text       0~65535       长度+2个字节
+    mediumtext 0~167772150   长度+3个字节
+    longtext   0~4294967295  长度+4个字节
+
+6.enum类型
+========
+    又称枚举类型。
+    enum(&apos;值1&apos;，&apos;值2&apos;，...，&apos;值n&apos;)
+    n-代表参数列表中的第n个值，这些值末尾的空格会被系统直接删除。
+    enum类型的值只能取列表中的一个元素。
+    取值列表中最多能有65535成员。
+    列表中的每一个值都有一个顺序排列的编号，mysql存入的是这个编号，而不是值。
+
+7.set类型
+=======
+    在创建表时，set类型的取值范围就以列表的形式指定了。
+    set(&apos;值1&apos;，&apos;值2&apos;，...，&apos;值n&apos;)
+    set类型的值最多只以是有64个元素构成的组合。取值可以是其中的一个或多个。其它特性，与enum类似。
+
+8.二进制类型
+==========
+    二进制类型是在数据库中存储二进制数据的数据类型。
+    类型            取值范围
+    binary(m)       字节数为m，允许长度为0~m的定长二进制字符串
+    varbinary(m)    允许长度为0~m的变长二进制字符串，字节数为值的长度加1
+    bit(m)          m位二进制数，m最大值为64
+    tinyblob        可变长二进制数据，最多255个字节
+    blob            可变长二进制数据，最多2e16-1个字节
+    mediumblob      可变长二进制数据，最多2e24-1个字节
+    longblob        可变长二进制数据，最多2e32-1个字节
+</code></pre></the>
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/12/10/MySQL字符类型/">MySQL字符类型</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 上官岳寿 的个人博客">上官岳寿</a></p>
+        <p><span>发布时间:</span>2017年12月10日 - 10时02分</p>
+        <p><span>最后更新:</span>2017年12月12日 - 10时53分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/10/MySQL字符类型/" title="MySQL字符类型">http://yoursite.com/2017/12/10/MySQL字符类型/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/12/10/MySQL字符类型/　　作者: 上官岳寿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/10/MySQL常用操作/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          MySQL常用操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/10/MySQL基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL基础</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/12/10/MySQL字符类型/" data-title="MySQL字符类型" data-url="http://yoursite.com/2017/12/10/MySQL字符类型/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shangguanyueshou"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/12/10/MySQL常用操作/" title="上一篇: MySQL常用操作">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/12/10/MySQL基础/" title="下一篇: MySQL基础">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/11/php与redis操作/">php操作redis常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/11/redis简介/">Redis简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL授权/">MySQL授权</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL日志恢复数据/">MySQL日志恢复数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/喵喵/">miao喵喵丶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL常用操作/">MySQL常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL字符类型/">MySQL字符类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL基础/">MySQL基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/MySQL主从配置/">MySQL主从配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/07/爱心树/">爱心树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/旋转星空/">旋转星空</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/俄罗斯方块/">俄罗斯方块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/厉害了/">很难忘记的人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/心情日记/">未来的道路,我们现在要更加的努力</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/感冒真难受/">朋友真的很重要</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/MYSQL表解锁/">MYSQL锁有以下几种形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/mysql的索引问题/">MYSQL的索引问题分类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/MYSQL检查索引/">MYSQL检查索引使用情况</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/show profile/">show profile分析SQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/29/mySQL最简单的优化方法/">MYSQL简单实用的优化方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/喝杯朱古力/">吃饭后,跑到公司和奶茶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/日常/">吃饭,睡觉,打豆豆</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/朋友/">人生就是这样的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/hello/">hello</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/11月27号上海/">·再回首恍然如梦</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 上官岳寿
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >小弟到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MySQL常用操作 | Dreamboy_上官</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="MySQL常用操作： ——–        常用操作">
+<meta name="keywords" content="MySQL,常用操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL常用操作">
+<meta property="og:url" content="http://yoursite.com/2017/12/10/MySQL常用操作/index.html">
+<meta property="og:site_name" content="Dreamboy_上官">
+<meta property="og:description" content="MySQL常用操作： ——–        常用操作">
+<meta property="og:updated_time" content="2017-12-12T02:53:16.202Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL常用操作">
+<meta name="twitter:description" content="MySQL常用操作： ——–        常用操作">
+  
+    <link rel="alternative" href="/atom.xml" title="Dreamboy_上官" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">上官岳寿</a></h1>
+        </hgroup>
+
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="search" placeholder=" Search...">
+            </form>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="https://shangguanyueshou.github.io/">博客首页</a></li>
+                        
+                            <li><a href="https://shangguanyueshou.github.io/">作品展示</a></li>
+                        
+                            <li><a href="https://shangguanyueshou.github.io/">留言打卡</a></li>
+                        
+                            <li><a href="https://shangguanyueshou.github.io/">前端导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=412417117@qq.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/shangguanyueshou" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="https://weibo.com/" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="http://www.google.com.hk/" title="google">google</a>
+                            
+                                <a class="fl QQ" target="_blank" href="https://user.qzone.qq.com/412417117/infocenter" title="QQ">QQ</a>
+                            
+                                <a class="fl twitter" target="_blank" href="https://twitter.com/" title="twitter">twitter</a>
+                            
+                                <a class="fl linkedin" target="_blank" href="https://www.linkedin.com/in/%E5%B2%B3%E5%AF%BF-%E4%B8%8A%E5%AE%98-9b16b6154/?trk=uno-choose-ge-no-intent&dl=no" title="linkedin">linkedin</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/11月26号/" style="font-size: 10px;">11月26号</a> <a href="/tags/2018-2-17/" style="font-size: 10px;">2018.2.17</a> <a href="/tags/MYSQL/" style="font-size: 20px;">MYSQL</a> <a href="/tags/MYSQL优化方法/" style="font-size: 10px;">MYSQL优化方法</a> <a href="/tags/MYSQL锁/" style="font-size: 10px;">MYSQL锁</a> <a href="/tags/MySQL/" style="font-size: 17.5px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/emmmmp/" style="font-size: 10px;">emmmmp</a> <a href="/tags/hello/" style="font-size: 10px;">hello</a> <a href="/tags/html/" style="font-size: 15px;">html</a> <a href="/tags/javaScript/" style="font-size: 15px;">javaScript</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/profile/" style="font-size: 10px;">profile</a> <a href="/tags/show/" style="font-size: 10px;">show</a> <a href="/tags/上官岳寿/" style="font-size: 10px;">上官岳寿</a> <a href="/tags/世界只因有你/" style="font-size: 10px;">世界只因有你</a> <a href="/tags/为什么没有单挑排位/" style="font-size: 10px;">为什么没有单挑排位</a> <a href="/tags/主从配置/" style="font-size: 10px;">主从配置</a> <a href="/tags/今天感冒了/" style="font-size: 10px;">今天感冒了</a> <a href="/tags/你在哪里/" style="font-size: 10px;">你在哪里</a> <a href="/tags/哎/" style="font-size: 10px;">哎</a> <a href="/tags/基本操作/" style="font-size: 10px;">基本操作</a> <a href="/tags/基础/" style="font-size: 10px;">基础</a> <a href="/tags/大宝剑/" style="font-size: 10px;">大宝剑</a> <a href="/tags/好好喝/" style="font-size: 10px;">好好喝</a> <a href="/tags/好好学习/" style="font-size: 10px;">好好学习</a> <a href="/tags/字符类型/" style="font-size: 10px;">字符类型</a> <a href="/tags/常用操作/" style="font-size: 10px;">常用操作</a> <a href="/tags/开心哦/" style="font-size: 10px;">开心哦</a> <a href="/tags/很喜欢的一句话/" style="font-size: 10px;">很喜欢的一句话</a> <a href="/tags/恢复数据/" style="font-size: 10px;">恢复数据</a> <a href="/tags/感冒了/" style="font-size: 10px;">感冒了</a> <a href="/tags/我应该怎么/" style="font-size: 10px;">我应该怎么</a> <a href="/tags/我老了/" style="font-size: 10px;">我老了</a> <a href="/tags/授权/" style="font-size: 10px;">授权</a> <a href="/tags/昨天的我失去了三个朋友/" style="font-size: 10px;">昨天的我失去了三个朋友</a> <a href="/tags/最简单/" style="font-size: 10px;">最简单</a> <a href="/tags/朋友/" style="font-size: 10px;">朋友</a> <a href="/tags/朱古力/" style="font-size: 10px;">朱古力</a> <a href="/tags/来说这个鸡巴游戏啊/" style="font-size: 10px;">来说这个鸡巴游戏啊</a> <a href="/tags/来陪我打王者农药/" style="font-size: 10px;">来陪我打王者农药</a> <a href="/tags/欢迎大家/" style="font-size: 10px;">欢迎大家</a> <a href="/tags/猎场/" style="font-size: 10px;">猎场</a> <a href="/tags/王者荣耀/" style="font-size: 10px;">王者荣耀</a> <a href="/tags/索引问题/" style="font-size: 12.5px;">索引问题</a> <a href="/tags/长大一岁/" style="font-size: 10px;">长大一岁</a> <a href="/tags/难受香菇/" style="font-size: 10px;">难受香菇</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://shanguanyueshou.github.io/">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱运动、爱交友、爱旅行、喜欢接触新鲜事物、迎接新的挑战，更爱游离于错综复杂的编码与逻辑中</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">上官岳寿</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">上官岳寿</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="https://shangguanyueshou.github.io/">博客首页</a></li>
+                
+                    <li><a href="https://shangguanyueshou.github.io/">作品展示</a></li>
+                
+                    <li><a href="https://shangguanyueshou.github.io/">留言打卡</a></li>
+                
+                    <li><a href="https://shangguanyueshou.github.io/">前端导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=412417117@qq.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/shangguanyueshou" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="https://weibo.com/" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="http://www.google.com.hk/" title="google">google</a>
+                    
+                        <a class="QQ" target="_blank" href="https://user.qzone.qq.com/412417117/infocenter" title="QQ">QQ</a>
+                    
+                        <a class="twitter" target="_blank" href="https://twitter.com/" title="twitter">twitter</a>
+                    
+                        <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/%E5%B2%B3%E5%AF%BF-%E4%B8%8A%E5%AE%98-9b16b6154/?trk=uno-choose-ge-no-intent&dl=no" title="linkedin">linkedin</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-MySQL常用操作" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/10/MySQL常用操作/" class="article-date">
+      <time datetime="2017-12-10T02:22:13.000Z" itemprop="datePublished">2017-12-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MySQL常用操作
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用操作/">常用操作</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><strong> MySQL常用操作：</strong> <excerpt in="" index="" |="" 首页摘要=""><br>——–        常用操作<br><a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+
+<h1 id="MySQL常用操作"><a href="#MySQL常用操作" class="headerlink" title="MySQL常用操作"></a>MySQL常用操作</h1><h2 id="1-表复制"><a href="#1-表复制" class="headerlink" title="1.     表复制"></a>1.     表复制</h2><blockquote>
+<p>复制表结构+复制表数据（推荐）</p>
+</blockquote>
+<pre><code>create table t2 like t1;
+insert into t2 select * from t1;
+</code></pre><blockquote>
+<p>直接复制表数据，但无索引和约束</p>
+</blockquote>
+<pre><code>create table t3 select * from t1; 
+</code></pre><h2 id="2-函数"><a href="#2-函数" class="headerlink" title="2.    函数"></a>2.    函数</h2><blockquote>
+<p>数学</p>
+</blockquote>
+<pre><code>ABS(x)                       返回x的绝对值
+BIN(x)                       返回x的二进制（OCT返回八进制，HEX返回十六进制）
+CEILING(x)                   返回大于x的最小整数值
+FLOOR(x)                       返回小于x的最大整数值
+GREATEST(x1,x2,...,xn)        返回集合中最大的值
+LEAST(x1,x2,...,xn)          返回集合中最小的值
+LN(x)                        返回x的自然对数
+LOG(x,y)                    返回x的以y为底的对数
+MOD(x,y)                     返回x/y的模（余数）
+PI()                        返回pi的值（圆周率）
+RAND()                        返回０到１（不含1）的随机值,可以通过提供一个参数(种子)使RAND()随机数生成器生成一个指定的值。
+ROUND(x,y)                    返回参数x的四舍五入的有y位小数的值
+SIGN(x)                     返回代表数字x的符号的值
+SQRT(x)                     返回一个数的平方根
+TRUNCATE(x,y)                返回数字x截短为y位小数的结果
+</code></pre><blockquote>
+<p>聚合(常用于GROUP BY从句的SELECT查询中)</p>
+</blockquote>
+<pre><code>AVG(col)                    返回指定列的平均值
+COUNT(col)                    返回指定列中非NULL值的个数
+MIN(col)                    返回指定列的最小值
+MAX(col)                    返回指定列的最大值
+SUM(col)                    返回指定列的所有值之和
+GROUP_CONCAT(col)             返回由属于一组的列值连接组合而成的结果
+</code></pre><blockquote>
+<p>字符串函数</p>
+</blockquote>
+<pre><code>ASCII(char)                    返回字符的ASCII码值
+BIT_LENGTH(str)                返回字符串的比特长度
+CONCAT(s1,s2...,sn)            将s1,s2...,sn连接成字符串
+CONCAT_WS(sep,s1,s2...,sn)    将s1,s2...,sn连接成字符串，并用sep字符间隔
+LCASE(str)或LOWER(str)        返回将字符串str中所有字符改变为小写后的结果
+LEFT(str,x)                    返回字符串str中最左边的x个字符
+LENGTH(s)                    返回字符串str中的字符数
+LTRIM(str)                     从字符串str中切掉开头的空格
+POSITION(substr,str)        返回子串substr在字符串str中第一次出现的位置
+REPEAT(str,srchstr,rplcstr)    返回字符串str重复x次的结果
+REVERSE(str)                 返回颠倒字符串str的结果
+RIGHT(str,x)                 返回字符串str中最右边的x个字符
+RTRIM(str)                     返回字符串str尾部的空格
+TRIM(str)                    去除字符串首部和尾部的所有空格
+UCASE(str)或UPPER(str)         返回将字符串str中所有字符转变为大写后的结果
+</code></pre><blockquote>
+<p>日期和时间函数</p>
+</blockquote>
+<pre><code>CURDATE()或CURRENT_DATE()     返回当前的日期
+CURTIME()或CURRENT_TIME()     返回当前的时间
+DATE_FORMAT(date,fmt)          依照指定的fmt格式格式化日期date值
+FROM_UNIXTIME(ts,fmt)          根据指定的fmt格式，格式化UNIX时间戳ts
+HOUR(time)                   返回time的小时值(0~23)
+MINUTE(time)                   返回time的分钟值(0~59)
+MONTH(date)                   返回date的月份值(1~12)
+NOW()                        返回当前的日期和时间
+WEEK(date)                   返回日期date为一年中第几周(0~53)
+YEAR(date)                   返回日期date的年份(1000~9999)    
+</code></pre><blockquote>
+<p>加密函数</p>
+</blockquote>
+<pre><code>MD5(str)                    计算字符串str的MD5校验和
+PASSWORD(str)               返回字符串str的加密版本，这个加密过程是不可逆转的，和UNIX密码加密过程使用不同的算法。
+SHA(str)                    计算字符串str的安全散列算法(SHA)校验和
+</code></pre><blockquote>
+<p>格式化函数</p>
+</blockquote>
+<pre><code>FORMAT(x,y)                   把x格式化为以逗号隔开的数字序列，y是结果的小数位数
+INET_ATON(ip)               返回IP地址的数字表示
+INET_NTOA(num)               返回数字所代表的IP地址
+</code></pre><blockquote>
+<p>系统信息函数</p>
+</blockquote>
+<pre><code>DATABASE()                   返回当前数据库名
+BENCHMARK(count,expr)          将表达式expr重复运行count次
+CONNECTION_ID()               返回当前客户的连接ID
+FOUND_ROWS()                   返回最后一个SELECT查询进行检索的总行数
+USER()或SYSTEM_USER()          返回当前登陆用户名
+VERSION()                   返回MySQL服务器的版本
+</code></pre><blockquote>
+<p>以上函数全部使用select调用输出，以下为常用show操作</p>
+</blockquote>
+<pre><code>SHOW CHARACTER SET            显示所有可用的字符集
+SHOW COLLATION                输出包括所有可用的校对字符集
+SHOW COLUMNS                显示在一个给定表中的各列的信息,对于视图，本语句也起作用。
+SHOW CREATE DATABASE        显示用于创建给定数据库CREATE DATABASE语句。
+SHOW DATABASES                SHOW DATABASES可以在MySQL服务器主机上列举数据库。
+SHOW ENGINES                检查一个存储引擎是否被支持，或者对于查看默认引擎是什么
+SHOW INDEX                    会返回表索引信息。
+SHOW TABLES                    列举了给定数据库中的非TEMPORARY表。    
+SHOW VARIABLES                列举当前环境变量
+</code></pre><h2 id="3-预处理"><a href="#3-预处理" class="headerlink" title="3. 预处理"></a>3. 预处理</h2><blockquote>
+<p>预先处理SQL的语法，通过传值完成SQL。</p>
+<p>优势：提高效率（重用），防止SQL注入（安全）。<br>PDO中的prepare就是调用该方法！！！</p>
+</blockquote>
+<pre><code>1、设置stmt1预处理，传递一个数据作为一个where判断条件
+       prepare stmt1 from &apos;select * from t1 where id&gt;?&apos;;
+2、设置一个变量
+       set @i=1;
+3、执行stmt1预处理
+       execute stmt1 using @i;
+4、删除预处理
+       drop prepare stmt1;
+</code></pre><h2 id="4-事务"><a href="#4-事务" class="headerlink" title="4.    事务"></a>4.    事务</h2><blockquote>
+<p>多个步骤为一个过程的事物（整体）,中间有任何一个环节出问题，都会造成事物的回滚</p>
+<p>表类型（引擎）：innodb</p>
+</blockquote>
+<pre><code>1、    关闭自动提交功能或开启事务
+    set autocommit=0;
+    begin;
+2、    删除记录
+    delete from t1 where id = 2;
+3、    创建还原点
+    savepoint p1;
+4、    删除记录
+    delete from t1 where id = 3;
+5、    再创建还原点
+    savepoint p2;
+6、    删除记录
+    delete from t1 where id = 4;
+7   退回还原点
+    rollback to p1;
+    rollback to p2;
+8    退回起始点
+    rollback;
+9   确认提交
+    commit;
+</code></pre><h2 id="5-存储"><a href="#5-存储" class="headerlink" title="5.    存储"></a>5.    存储</h2><blockquote>
+<p>批量的有规律的mysql操作可以事前存在procedure中，后期调用。</p>
+</blockquote>
+<pre><code>1、    创建一个存储p1()
+    \d //        //将结束符修改为”//”  或者delimiter //
+    create procedure p1()
+    -&gt;begin
+    -&gt;set @i=1;
+    -&gt;while @i&lt;6 do
+    -&gt; select * from t1 where id=@i;
+    -&gt;set @i=@i+1;
+    -&gt;end while;
+    -&gt;end//
+2、    执行存储p1()
+    \d ;            //将结束符修改回；
+    call p1;
+3、    查看所有procedure的status信息
+    show procedure status\G
+4、    查看procddure p1()的具体信息
+    show create procedure p1\G
+5、    删除procedure
+    drop procedure p1;
+</code></pre><h2 id="6-触发器"><a href="#6-触发器" class="headerlink" title="6.    触发器"></a>6.    触发器</h2><blockquote>
+<p>监视某种事件，并触发某种操作。（商品添加，订单消除等连贯表操作时使用）</p>
+<p>触发四要素：</p>
+<p>1、监视地点（table）2、触发时间（after/before）3、监视事件（insert/update/delete）4、触发事件（insert/update/delete）</p>
+</blockquote>
+<pre><code>1、    修改delimiter为//
+    \d //
+2、    创建一个名为tg1的触发器，当向t1表中插入数据前，就向a表中插入一条数据
+    create trigger tg1 before insert on t1 for each row    #固定写法
+    -&gt;begin
+    -&gt; insert into a values (4);
+    -&gt;end//
+3、    修改delimiter为;
+    \d ;
+4、    插入数据测试
+    insert into t1 values (null,&apos;tom&apos;);
+</code></pre><h2 id="7-视图"><a href="#7-视图" class="headerlink" title="7.    视图"></a>7.    视图</h2><pre><code>    insert into t1 (name) select t1.name from t1;
+创建视图：
+       create view v_t1 as select * from t1 where id&gt;1 and id&lt;5;
+视图帮助信息：
+       ?  view
+    ALTER VIEW
+    CREATE VIEW
+    DROP VIEW    
+查看视图：
+    show tables;
+    select * from v_t1;
+删除视图：
+    drop view v_t1;
+    视图相当于表查询的快捷方式，表数据改变，视图也跟着变。
+</code></pre><h2 id="8-临时表"><a href="#8-临时表" class="headerlink" title="8.    临时表"></a>8.    临时表</h2><blockquote>
+<p>仅在当前session有效的存在于内存中的临时表。</p>
+</blockquote>
+<pre><code>create temporary table tmp1 (id int) ;
+</code></pre><blockquote>
+<p>只对当前会话(连接)有效，断开后，临时表自动清除，也可以自己drop table tmp1;临时表在销毁前，文件暂存/tmp下。</p>
+</blockquote>
+<h2 id="9-虚拟表-dual"><a href="#9-虚拟表-dual" class="headerlink" title="9.    虚拟表 dual"></a>9.    虚拟表 dual</h2><blockquote>
+<p>在Oracl中有虚拟表技术，MySQL也效仿设置虚拟表。MySQL中直接查数据或者调用函数可以不用from表，但为了照顾select from 的习惯固设立虚拟表 <strong>dual</strong></p>
+</blockquote>
+<pre><code>select now();        //实际操作为下句
+select now() from dual;
+</code></pre><h2 id="10-重置自增"><a href="#10-重置自增" class="headerlink" title="10.    重置自增"></a>10.    重置自增</h2><blockquote>
+<p>MySQL数据库自增ID如何恢复</p>
+</blockquote>
+<pre><code>清空表
+    delete    from  tablename            //只能清空数据，不能重置ID
+修改表
+    alter table tablename auto_increment=1;    
+或者
+    truncate    table tablename;    //推荐
+</code></pre><h2 id="11-数据导入导出"><a href="#11-数据导入导出" class="headerlink" title="11.    数据导入导出"></a>11.    数据导入导出</h2><blockquote>
+<p>完整备份：</p>
+</blockquote>
+<pre><code>/usr/local/mysql/bin/mysqldump -uroot -p -l -F test&gt;&apos;/tmp/test.sql&apos;
+</code></pre><blockquote>
+<p>导出一个数据库中每一个表的相关SQL语句，包含建表、增删改查等导入导出速度慢！</p>
+<p>完整导入：</p>
+</blockquote>
+<pre><code>create database test2;
+
+/usr/local/mysql/bin//mysql -uroot -p123 test2&lt;/tmp/test.sql
+</code></pre><blockquote>
+<p>单表数据备份：</p>
+</blockquote>
+<pre><code>select * from t1 into outfile &apos;/tmp/t1.txt&apos;;
+</code></pre><blockquote>
+<p>仅仅是导出表数据，查什么就导出什么。</p>
+<p>导入数据：</p>
+</blockquote>
+<pre><code>truncate t1;        #准备工作，先清空表，或自己创建一个表    
+    load data infile &apos;/tmp/t1.txt&apos; into table t1;
+
+可以指定某一些列，空置字段为NULL或者默认值
+    load data infile &apos;/test/users.txt&apos; into table users(id,name);
+</code></pre><h2 id="12-索引操作"><a href="#12-索引操作" class="headerlink" title="12. 索引操作"></a>12. 索引操作</h2><blockquote>
+<p>什么是索引？<br>就像是书的目录，能够提高查询速度，降低写入速度，占用磁盘空间</p>
+<p>分类：主键、唯一、普通、全文(sphinx等检索引擎代替)</p>
+</blockquote>
+<pre><code>ALTER TABLE ADD                //增
+ALTER TABLE table_name ADD INDEX idx_name(column_list)
+ALTER TABLE table_name ADD UNIQUE uk_name (column_list)
+ALTER TABLE table_name ADD PRIMARY KEY (column_list)
+ALTER TABLE DROP            //删
+ALTER TABLE table_name DROP INDEX idx_name/uk_name    //唯一和普通都用此方式
+ALTER TABLE table_name DROP PRIMARY KEY
+show index from table_name    //查
+</code></pre><blockquote>
+<p>注意：</p>
+<p>删除主键索引，该字段不能有auto_increment，如果有先修改掉再删。</p>
+<p>修改索引：先增再删</p>
+</blockquote>
+<h2 id="13-root密码丢失找回"><a href="#13-root密码丢失找回" class="headerlink" title="13. root密码丢失找回"></a>13. root密码丢失找回</h2><blockquote>
+<p>丢失时的密码重置</p>
+</blockquote>
+<pre><code>1、    停止服务
+    pkill mysqld    
+2、    重启服务，但需要跳过授权表限制
+    /usr/local/mysql/bin/mysqld_safe --skip-grant-tables --user=mysql &amp;    
+3、    登录
+    mysql -uroot
+    不用密码即可    
+4、    查看现有用户
+    select user,host,password from mysql.user;    
+5、    修改密码
+    update mysql.user set password=password(&apos;123&apos;) where user=&apos;root&apos; and host=&apos;localhost&apos;    
+6、    退出
+    exit    
+7、    重启MySQL
+    pkill mysqld
+    /usr/local/mysql/bin/mysqld_safe --user=mysql &amp;
+</code></pre><blockquote>
+<p>正常修改密码方式：</p>
+</blockquote>
+<pre><code>方法一： 
+正常登陆mysql后，
+     set password for root@localhost=password(&quot;123&quot;);
+
+方法二：
+脚本命令行    
+    ./mysqladmin -u root -p password mypasswd（新密码）
+然后输入旧密码
+</code></pre></the>
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/12/10/MySQL常用操作/">MySQL常用操作</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 上官岳寿 的个人博客">上官岳寿</a></p>
+        <p><span>发布时间:</span>2017年12月10日 - 10时22分</p>
+        <p><span>最后更新:</span>2017年12月12日 - 10时53分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/10/MySQL常用操作/" title="MySQL常用操作">http://yoursite.com/2017/12/10/MySQL常用操作/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/12/10/MySQL常用操作/　　作者: 上官岳寿" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/10/喵喵/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          miao喵喵丶
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/10/MySQL字符类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL字符类型</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL常用操作"><span class="toc-number">1.</span> <span class="toc-text">MySQL常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-表复制"><span class="toc-number">1.1.</span> <span class="toc-text">1.     表复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-函数"><span class="toc-number">1.2.</span> <span class="toc-text">2.    函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-预处理"><span class="toc-number">1.3.</span> <span class="toc-text">3. 预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-事务"><span class="toc-number">1.4.</span> <span class="toc-text">4.    事务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-存储"><span class="toc-number">1.5.</span> <span class="toc-text">5.    存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-触发器"><span class="toc-number">1.6.</span> <span class="toc-text">6.    触发器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-视图"><span class="toc-number">1.7.</span> <span class="toc-text">7.    视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-临时表"><span class="toc-number">1.8.</span> <span class="toc-text">8.    临时表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-虚拟表-dual"><span class="toc-number">1.9.</span> <span class="toc-text">9.    虚拟表 dual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-重置自增"><span class="toc-number">1.10.</span> <span class="toc-text">10.    重置自增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-数据导入导出"><span class="toc-number">1.11.</span> <span class="toc-text">11.    数据导入导出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-索引操作"><span class="toc-number">1.12.</span> <span class="toc-text">12. 索引操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-root密码丢失找回"><span class="toc-number">1.13.</span> <span class="toc-text">13. root密码丢失找回</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2017/12/10/MySQL常用操作/" data-title="MySQL常用操作" data-url="http://yoursite.com/2017/12/10/MySQL常用操作/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shangguanyueshou"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '/js/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/12/10/喵喵/" title="上一篇: miao喵喵丶">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/12/10/MySQL字符类型/" title="下一篇: MySQL字符类型">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/11/php与redis操作/">php操作redis常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/11/redis简介/">Redis简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL授权/">MySQL授权</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL日志恢复数据/">MySQL日志恢复数据</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/喵喵/">miao喵喵丶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL常用操作/">MySQL常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL字符类型/">MySQL字符类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/10/MySQL基础/">MySQL基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/09/MySQL主从配置/">MySQL主从配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/07/爱心树/">爱心树</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/旋转星空/">旋转星空</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/俄罗斯方块/">俄罗斯方块</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/05/厉害了/">很难忘记的人</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/心情日记/">未来的道路,我们现在要更加的努力</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/感冒真难受/">朋友真的很重要</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/MYSQL表解锁/">MYSQL锁有以下几种形式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/mysql的索引问题/">MYSQL的索引问题分类</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/MYSQL检查索引/">MYSQL检查索引使用情况</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/30/show profile/">show profile分析SQL</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/29/mySQL最简单的优化方法/">MYSQL简单实用的优化方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/喝杯朱古力/">吃饭后,跑到公司和奶茶</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/日常/">吃饭,睡觉,打豆豆</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/朋友/">人生就是这样的</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/hello/">hello</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/26/11月27号上海/">·再回首恍然如梦</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 上官岳寿
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >小弟到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+    <script type="text/javascript">
+      window.onload = function(){
+        document.getElementById("search").onclick = function(){
+            console.log("search")
+            search();
+        }
+      }
+      function search(){
+        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+        (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+        e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+        _st('install','A1Pz-LKMXbrzcFg2FWi6','2.0.0');
+      }
+    </script>
+
+
+  </div>
+</body>
+</html>
